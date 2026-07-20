@@ -17,17 +17,17 @@ source frames packets from the ``packetSize`` list of (header, size) tuples):
 import numpy as np
 
 # ── Accelerometer (ACC) decode constants ───────────────────────────────────
-_ACC_SAMP = None  # TODO: number of ACC samples per packet
-_ACC_CH = None  # TODO: number of ACC channels
-_ACC_BYTES_PER_SAMP = None  # TODO: number of bytes per ACC sample (hint: float32, little-endian)
-_ACC_BYTES = _ACC_SAMP * _ACC_CH * _ACC_BYTES_PER_SAMP
+_ACC_SAMP = 4  # number of ACC samples per packet
+_ACC_CH = 3  # number of ACC channels
+_ACC_BYTES_CH = 4  # number of bytes per ACC sample (float32, little-endian)
+_ACC_BYTES = _ACC_SAMP * _ACC_CH * _ACC_BYTES_CH
 _ACC_FS = 104.0  # Hz, per channel
 
 # ── Gyroscope (GYRO) decode constants ──────────────────────────────────────
-_GYRO_SAMP = None   # TODO: number of GYRO samples per packet
-_GYRO_CH = None  # TODO: number of GYRO channels
-_GYRO_BYTES_PER_SAMP = None  # TODO: number of bytes per GYRO sample (hint: float32, little-endian)
-_GYRO_BYTES = _GYRO_SAMP * _GYRO_CH * _GYRO_BYTES_PER_SAMP
+_GYRO_SAMP = 4  # number of GYRO samples per packet
+_GYRO_CH = 3  # number of GYRO channels
+_GYRO_BYTES_CH = 4  # number of bytes per GYRO sample (float32, little-endian)
+_GYRO_BYTES = _GYRO_SAMP * _GYRO_CH * _GYRO_BYTES_CH
 _GYRO_FS = 104.0  # Hz, per channel
 
 # ── BLE framing constants ──────────────────────────────────────────────────
@@ -42,10 +42,10 @@ packetSize: list[tuple[int, int]] = [
 ]
 """List of (header_byte, packet_size) tuples."""
 
-startSeq: list[bytes | float] = [None]  # TODO: byte corresponding to character 'b' (hint: use bytes literal, e.g. b'_')
+startSeq: list[bytes | float] = [b"b"]
 """Commands to start streaming."""
 
-stopSeq: list[bytes | float] = [None]  # TODO: byte corresponding to character 'e' (hint: use bytes literal, e.g. b'_')
+stopSeq: list[bytes | float] = [b"e"]
 """Commands to stop streaming."""
 
 sigInfo: dict = {
@@ -75,13 +75,17 @@ def decodeFn(data: bytes) -> dict[str, np.ndarray]:
 
     # Accelerometer case
     if header == _ACC_HEADER:
-        acc = None  # TODO: decode the ACC packet (hint: use np.frombuffer or struct.unpack; convert to ndarray and reshape to (_ACC_SAMP, _ACC_CH))
+        acc = np.frombuffer(data[1 : 1 + _ACC_BYTES], dtype="<f4").reshape(
+            _ACC_SAMP, _ACC_CH
+        )
         results["acc"] = acc
         return results
 
     # Gyroscope case
     if header == _GYRO_HEADER:
-        gyro = None  # TODO: decode the GYRO packet (hint: use np.frombuffer or struct.unpack; convert to ndarray and reshape to (_GYRO_SAMP, _GYRO_CH))
+        gyro = np.frombuffer(data[1 : 1 + _GYRO_BYTES], dtype="<f4").reshape(
+            _GYRO_SAMP, _GYRO_CH
+        )
         results["gyro"] = gyro
         return results
 
