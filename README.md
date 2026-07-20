@@ -49,5 +49,11 @@ Once you think the interface file is ready:
 
 You should now be able to see the live signals. You can then stop the streaming by clicking on the "Stop streaming" button.
 
-## 3. Visualize the acquired signals
-TODO
+## 3. Visualizing the acquired signals
+By default, the BioGUI stores the signals from each data source inside the `biogui/dataruntime` folder in binary format with the `.bio` extension (you can change the name and location when you add the data source).
+By switching to the "Playback" tab, you can then browse .bio files or load the latest ones, and visualize the signals by clicking on "Open visualization".
+
+![Visualize the acquired signals](resources/visualize_signals.png)
+
+## 4. Perform acquisition with triggers
+The BioGUI
