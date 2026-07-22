@@ -1,9 +1,12 @@
 # biogui_getting_started
 Repository for BioGUI workshop at EMBC 2026.
 
+This project is licensed under Apache 2.0 (see LICENSE).
+Some vendored components (STM32 HAL, CMSIS, middleware) retain their original licenses — see headers in respective folders.
+
 ## 0. Preliminary information
 For this workshop, we'll use a STM32F401RET6 NUCLEO board, paired with a X-NUCLEO-IKS01A2 sensor expansion board.
-The board is configured to stream accelerometer and gyroscope data via UART.
+The board is configured to stream accelerometer and gyroscope data via UART (the STM32Cube project lives in [`stm32-streamer.py`](https://github.com/pulp-bio/biogui_getting_started/blob/main/stm32-streamer)).
 
 ## 1. Setup
 First of all, download the BioGUI from GitHub:
