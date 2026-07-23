@@ -209,5 +209,6 @@ __marimo__/
 # Zed
 .zed/
 
-# Data
+# Data and models
 *.bio
+*.skops

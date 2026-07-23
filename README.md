@@ -35,8 +35,8 @@ The only step needed to acquire data from the device is to write an *interface f
 
 Interface files for curated devices can be found in [`biogui/platforms`](https://github.com/pulp-bio/biogui/blob/main/biogui/platforms).
 
-For the purpose of this workshop, we provide a skeleton for the interface file of the NUCLEO board: [`interface_nucleo.py`](https://github.com/pulp-bio/biogui_getting_started/blob/main/interface_nucleo.py).
-If you can't wait, we also provide a complete version: [`interface_nucleo_solution.py`](https://github.com/pulp-bio/biogui_getting_started/blob/main/interface_nucleo_solution.py).
+For the purpose of this workshop, we provide a skeleton for the interface file of the NUCLEO board: [`interface_nucleo.py`](https://github.com/pulp-bio/biogui_getting_started/blob/main/biogui_utils/interface_nucleo.py).
+If you can't wait, we also provide a complete version: [`interface_nucleo_solution.py`](https://github.com/pulp-bio/biogui_getting_started/blob/main/biogui_utils/interface_nucleo_solution.py).
 
 Once you think the interface file is ready:
 1. plug the device;
@@ -59,4 +59,10 @@ By switching to the "Playback" tab, you can then browse .bio files or load the l
 ![Visualize the acquired signals](resources/visualize_signals.png)
 
 ## 4. Perform acquisition with triggers
-The BioGUI
+TODO.
+
+## 5. Train a classification model
+TODO. 
+
+## 6. Run a PyGame task
+![Configure forwarding module](resources/configure_forwarding.png) 

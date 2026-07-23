@@ -1,5 +1,7 @@
 jupyterlab
 matplotlib
 numpy
+pygame-ce
 scikit-learn
 scipy
+skops
