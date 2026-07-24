@@ -1,14 +1,14 @@
 {
   "triggers": {
-    "rotate right": "",
-    "rotate left": "",
-    "rotate forward": "",
-    "rotate backward": ""
+    "tilt right": "tilt_right.png",
+    "tilt left": "tilt_left.png",
+    "tilt forward": "tilt_forward.png",
+    "tilt backward": "tilt_backward.png"
   },
   "nReps": 4,
   "durationTrigger": 5000,
   "durationStart": 2000,
   "durationRest": 3000,
   "alternating": true,
-  "imageFolder": ""
+  "imageFolder": "ABSOLUTE_PATH_TO/biogui_utils/trigger_images"
 }

@@ -92,7 +92,8 @@ Image filenames and `imageFolder` can be empty strings: in that case, the BioGUI
 For the purpose of this workshop, a JSON configuration is already provided: [`trigger_protocol.json`](https://github.com/pulp-bio/biogui_getting_started/blob/main/biogui_utils/trigger_protocol.json):
 - it comprises 4 "gestures"—tilt right, tilt left, tilt forward, tilt backward;
 - each gesture is repeated 4 times in an alternating way (i.e., right, left, forward, backward, right, etc.);
-- each gesture lasts 5 seconds, with a 3-second rest period in between.
+- each gesture lasts 5 seconds, with a 3-second rest period in between;
+- you just need to **set the `imageFolder` path** with the absolute path to [`biogui_utils/trigger_images`](https://github.com/pulp-bio/biogui_getting_started/blob/main/biogui_utils/trigger_images)
 
 After selecting the JSON file with the trigger configuration, click on "Start streaming" to start the acquisition (**remember** to configure file saving in the data source configuration wizard). The experiment should last ~2 minutes.
 
