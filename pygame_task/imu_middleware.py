@@ -300,7 +300,7 @@ def main():
     # Parse inputs
     parser = argparse.ArgumentParser(description="Fitts' Law Middleware")
     parser.add_argument(
-        "--biogui_endpoint",
+        "--data_endpoint",
         type=str,
         required=True,
         help='Endpoint for receiving BioGUI data, either a Unix socket path or an "address:port" string for TCP.',
@@ -329,7 +329,7 @@ def main():
 
     # Create and start relay
     server_relay = ServerRelay(
-        data_endpoint=parse_endpoint(args.biogui_endpoint),
+        data_endpoint=parse_endpoint(args.data_endpoint),
         cmd_endpoint=parse_endpoint(args.cmd_endpoint),
         model_path=args.model_path,
     )
